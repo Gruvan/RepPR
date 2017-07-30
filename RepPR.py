@@ -3,29 +3,30 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
+from kivy.uix.listview import ListView, ListItemButton
+from kivy.adapters.listadapter import ListAdapter
+from kivy.properties import ObjectProperty
+from random import random
 
 
-class MyLabel(BoxLayout):
+class LiftListButton(ListItemButton):
     pass
 
-class CustomDropDown(DropDown):
-    pass
 
-class SimpleKivy(App):
+class RepPRLayout(BoxLayout):
+    nReps = ObjectProperty()
+    weight = ObjectProperty()
+    est1RM = ObjectProperty()
+
+    def replaceLift(self):
+        pass
+
+
+class RepPRApp(App):
     def build(self):
-        CustomDropDown()
-        self.load_kv('reppr.kv')
-
-        dropdown = CustomDropDown()
-        mainbutton = Button(text='Hello', size_hint=(None, None))
-        mainbutton.bind(on_release=dropdown.open)
-        dropdown.bind(on_select=lambda instance, x: setattr(mainbutton, 'text', x))
-        return MyLabel()
-
-
-
-
+#self.load_kv('reppr.kv')
+        return RepPRLayout()
 
 
 if __name__ == "__main__":
-    SimpleKivy().run()
+    RepPRApp().run()

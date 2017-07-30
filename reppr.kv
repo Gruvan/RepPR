@@ -1,21 +1,26 @@
-#File name: AwsomeApp.py
+#: import main RepPR
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
 
-<MyLabel>:
+
+<RepPRLayout>:
     orientation: "vertical"   
     Label:
-        text: "Detta är min app"
+        text: "RepPR  \n  workout tracker"
         font_size: 50
 
-    BoxLayout:
-        Label:
-            text: "hej gris"
-        Button:
-            text: "HEJ "
 
+
+    BoxLayout:
+
+        ListView:
+            id: replist
+            adapter:
+                ListAdapter(data=["120 kg x 4 reps  -->  135 kg Max", "110 kg x 3 reps  -->  125 kg Max","123 kg x 1 reps  -->  115 kg Max"], cls=main.LiftListButton)
+
+                   
     Label:
         text: "Detta är längst ner"
 
-#:kivy 1.4.0
-<CustomDropDown>:
-    Button:
-        text: "HEJssssss"
+
+   
