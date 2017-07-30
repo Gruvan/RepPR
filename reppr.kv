@@ -1,3 +1,4 @@
+#:import hex kivy.utils.get_color_from_hex
 #: import main RepPR
 #: import ListAdapter kivy.adapters.listadapter.ListAdapter
 #: import ListItemButton kivy.uix.listview.ListItemButton
@@ -5,22 +6,49 @@
 
 <RepPRLayout>:
     orientation: "vertical"   
-    Label:
-        text: "RepPR  \n  workout tracker"
-        font_size: 50
-
-
+    canvas.before:
+        Color:
+            #rgba: 1, 1, 1, 1
+            rgba: hex('#96d66b')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    BoxLayout:
+        Image:
+            source: 'logo.png'
+            keep_ratio: True
+            allow_stretch: True
+            opacity: 1
+            size_hint: 0.9, 0.9
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
     BoxLayout:
+        Button:
+            text: "Uppdatera sortering"
+            default_size: None, dp(30)
+            default_size_hint: 1, None
+            size_hint_y: None
+            #padding: dp(10)
+            padding_y: 100
+            padding_x: 100
 
-        ListView:
-            id: replist
-            adapter:
-                ListAdapter(data=["120 kg x 4 reps  -->  135 kg Max", "110 kg x 3 reps  -->  125 kg Max","123 kg x 1 reps  -->  115 kg Max"], cls=main.LiftListButton)
+        Button:
+            text: "Editera rekord"
+            default_size: None, dp(30)
+            default_size_hint: 1, None
+            size_hint_y: None
 
-                   
-    Label:
-        text: "Detta är längst ner"
-
+    RV:    
+        viewclass: 'Button'
+        RecycleBoxLayout:
+            default_size: None, dp(30)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
+            id: rv
+          
+ 
 
    
