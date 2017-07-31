@@ -14,14 +14,25 @@
             pos: self.pos
             size: self.size
     
-    BoxLayout:
-        Image:
-            source: 'logo.png'
-            keep_ratio: True
-            allow_stretch: True
-            opacity: 1
-            size_hint: 0.9, 0.9
-            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+    
+    Image:
+        source: 'logo.png'
+        keep_ratio: True
+        allow_stretch: True
+        opacity: 1
+        size_hint: 0.9, 0.9
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    RV:    
+        viewclass: 'Label'
+        RecycleBoxLayout:
+            default_size: None, dp(20)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
+            id: rv
+
 
     BoxLayout:
         Button:
@@ -30,8 +41,6 @@
             default_size_hint: 1, None
             size_hint_y: None
             #padding: dp(10)
-            padding_y: 100
-            padding_x: 100
 
         Button:
             text: "Editera rekord"
@@ -39,15 +48,7 @@
             default_size_hint: 1, None
             size_hint_y: None
 
-    RV:    
-        viewclass: 'Button'
-        RecycleBoxLayout:
-            default_size: None, dp(30)
-            default_size_hint: 1, None
-            size_hint_y: None
-            height: self.minimum_height
-            orientation: 'vertical'
-            id: rv
+  
           
  
 

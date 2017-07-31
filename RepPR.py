@@ -15,7 +15,12 @@ from kivy.uix.textinput import TextInput
 lista = [{"weight": 90, "reps": 3, "est1RM": 100},
          {"weight": 81, "reps": 4, "est1RM": 95},
          {"weight": 72, "reps": 5, "est1RM": 90},
-         {"weight": 70, "reps": 6, "est1RM": 80}]
+         {"weight": 71, "reps": 6, "est1RM": 80},
+         {"weight": 70, "reps": 6, "est1RM": 80},
+         {"weight": 73, "reps": 6, "est1RM": 80},
+         {"weight": 12, "reps": 6, "est1RM": 80},
+         {"weight": 23, "reps": 6, "est1RM": 80},
+         {"weight": 12, "reps": 6, "est1RM": 80}]
 
 
 def prettyOutprint(dicts):
@@ -35,14 +40,6 @@ prettyOutprint(lista)
 
 class LiftListButton(ListItemButton):
     pass
-
-
-class SelectableLabel(RecycleDataViewBehavior, Label):
-    ''' Add selection support to the Label '''
-    index = None
-    selected = BooleanProperty(False)
-
-
 
 
 class RV(RecycleView):
