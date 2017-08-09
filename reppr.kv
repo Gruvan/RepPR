@@ -13,15 +13,40 @@
         Rectangle:
             pos: self.pos
             size: self.size
-    
-    
-    Image:
-        source: 'logo.png'
-        keep_ratio: True
-        allow_stretch: True
-        opacity: 1
-        size_hint: 0.9, 0.9
-        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+  
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Spinner:
+    # default value shown
+            text: 'Övningar'
+    # available values
+            values: ['Bänkpress', 'Deadlift', 'Knäböj', 'Sälrodd']
+    # just for positioning in our example
+            size_hint: (None, None)
+            size: (200, 44)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+
+        Button:
+            text: "Sortera 1RM"
+            default_size: None, dp(30)
+            default_size_hint: 1, None
+            size_hint_y: None
+        Image:
+            source: 'logo.png'
+            keep_ratio: True
+            allow_stretch: True
+            opacity: 1
+            size_hint: 0.9, 0.9
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        Button:
+            text: "Sortera reps"
+            default_size: None, dp(30)
+            default_size_hint: 1, None
+            size_hint_y: None
 
     RV:    
         viewclass: 'Label'
@@ -34,22 +59,16 @@
             id: rv
 
 
-    BoxLayout:
-        Button:
-            text: "Uppdatera sortering"
-            default_size: None, dp(30)
-            default_size_hint: 1, None
-            size_hint_y: None
-            #padding: dp(10)
+    # BoxLayout:
+    #     Button:
+    #         text: "Uppdatera sortering"
+    #         default_size: None, dp(10)
+    #         default_size_hint: 1, None
+    #         size_hint_y: None
+    #         #padding: dp(10)
 
-        Button:
-            text: "Editera rekord"
-            default_size: None, dp(30)
-            default_size_hint: 1, None
-            size_hint_y: None
-
-  
-          
- 
-
-   
+    #     Button:
+    #         text: "Editera rekord"
+    #         default_size: None, dp(10)
+    #         default_size_hint: 1, None
+    #         size_hint_y: None
